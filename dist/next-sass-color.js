@@ -2,8 +2,8 @@
   var global = global || this || window || Function('return this')();
   var nx = global.nx || require('next-js-core2');
   var NxColor = require('next-color');
-  const sass = require('node-sass');
-  const sassUtils = require('node-sass-utils')(sass);
+  var sass = require('node-sass');
+  var sassUtils = require('node-sass-utils')(sass);
 
   nx.sassColor = function(inContext) {
     return {
