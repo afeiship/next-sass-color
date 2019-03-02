@@ -13,24 +13,41 @@
       },
       'rgba($inColor,$inAlpha)': function(inColor, inAlpha) {
         var type = sassUtils.typeOf(inColor);
-        var color, colorString;
+        var alpha = inAlpha.getValue();
+        var colorString;
         switch (type) {
           case 'string':
-            colorString = inColor.getValue();
+            colorString = NxColor.rgba(inColor.getValue(), alpha).string();
             break;
           case 'color':
-            inColor.setA(inAlpha.getValue());
+            inColor.setA(alpha);
             colorString = sassUtils.sassString(inColor);
+            console.log(colorString);
             break;
         }
-        color = NxColor.rgba(colorString, inAlpha).string();
-        return sassUtils.castToSass(color.string());
+        return sassUtils.castToSass(colorString);
       },
       'lighten($inColor,$inAmount)': function(inColor, inAmount) {
-        return inColor;
+        var amount = inAmount.getValue() / 100;
+        var type = sassUtils.typeOf(inColor);
+        var colorString;
+        switch (type) {
+          case 'string':
+            colorString = NxColor.lighten(inColor.getValue(), amount).hex();
+            break;
+        }
+        return sassUtils.castToSass(colorString);
       },
       'darken($inColor,$inAmount)': function(inColor, inAmount) {
-        return inColor;
+        var amount = inAmount.getValue() / 100;
+        var type = sassUtils.typeOf(inColor);
+        var colorString;
+        switch (type) {
+          case 'string':
+            colorString = NxColor.darken(inColor.getValue(), amount).hex();
+            break;
+        }
+        return sassUtils.castToSass(colorString);
       }
     };
   };
