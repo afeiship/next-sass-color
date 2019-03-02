@@ -22,7 +22,6 @@
           case 'color':
             inColor.setA(alpha);
             colorString = sassUtils.sassString(inColor);
-            console.log(colorString);
             break;
         }
         return sassUtils.castToSass(colorString);
