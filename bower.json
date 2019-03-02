@@ -1,0 +1,28 @@
+{
+  "name": "next-sass-color",
+  "version": "0.0.1",
+  "description": "Color functions for sassLoader based nodeSass",
+  "main": "dist/next-sass-color.js",
+  "authors": [
+    "afei"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "homepage": "https://github.com/afeiship/next-sass-color",
+  "moduleType": [
+    "amd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "build",
+    "src",
+    "gulp",
+    "gulpfile.js"
+  ]
+}
