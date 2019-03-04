@@ -13,12 +13,25 @@
           'color($inKeys)': function(inSassString) {
             return self.color(inContext, inSassString);
           },
-          'lighten($inColor,$inAmount)': function(inSassString) {},
-          'darken($inColor,$inAmount)': function(inSassString) {},
+          'lighten($inColor,$inAmount)': function(inColor, inAmount) {
+            return self.lighten(inColor, inAmount);
+          },
+          'darken($inColor,$inAmount)': function(inColor, inAmount) {
+            return self.darken(inColor, inAmount);
+          },
           'rgba($inArgs...)': function() {
             var args = arguments[0];
-            var len = args.length;
-            self['rgba' + len].apply(null, args);
+            var len = args.getLength();
+            if (len === 2) {
+              return self.rgba2(args.getValue(0), args.getValue(1));
+            } else {
+              return self.rgba4(
+                args.getValue(0),
+                args.getValue(1),
+                args.getValue(2),
+                args.getValue(3)
+              );
+            }
           }
         };
       },
@@ -28,6 +41,7 @@
       },
       'lighten,darken': function(inName) {
         return function(inColor, inAmount) {
+          console.log('compused function:->', inColor, inAmount, inName);
           var amount = inAmount.getValue() / 100;
           var type = sassUtils.typeOf(inColor);
           var colorString;
