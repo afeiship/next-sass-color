@@ -4,7 +4,6 @@
   var NxColor = require('next-color');
   var sass = require('node-sass');
   var sassUtils = require('node-sass-utils')(sass);
-  var sassList2array = require('next-sass-list2array');
 
   var NxSassColor = nx.declare('nx.SassColor', {
     statics: {
@@ -21,9 +20,18 @@
             return self.darken(inColor, inAmount);
           },
           'rgba($inArgs...)': function() {
-            var list = arguments[0];
+            var args = arguments[0];
             var len = args.getLength();
-            return self['rgba' + len].apply(null, sassList2array(list));
+            if (len === 2) {
+              return self.rgba2(args.getValue(0), args.getValue(1));
+            } else {
+              return self.rgba4(
+                args.getValue(0),
+                args.getValue(1),
+                args.getValue(2),
+                args.getValue(3)
+              );
+            }
           }
         };
       },
@@ -33,7 +41,6 @@
       },
       'lighten,darken': function(inName) {
         return function(inColor, inAmount) {
-          console.log('compused function:->', inColor, inAmount, inName);
           var amount = inAmount.getValue() / 100;
           var type = sassUtils.typeOf(inColor);
           var colorString;
