@@ -35,9 +35,9 @@
           }
         };
       },
-      color: function(inSassString) {
+      color: function(inContext, inSassString) {
         var path = inSassString.getValue();
-        return sassUtils.castToSass(nx.get(path));
+        return sassUtils.castToSass(nx.get(inContext, path));
       },
       'lighten,darken': function(inName) {
         return function(inColor, inAmount) {
