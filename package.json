@@ -29,6 +29,7 @@
   "dependencies": {
     "next-color": "github:afeiship/next-color",
     "next-js-core2": "github:afeiship/next-js-core2",
+    "next-sass-list2array": "github:afeiship/next-sass-list2array",
     "node-sass": "^4.11.0",
     "node-sass-utils": "^1.1.2"
   }

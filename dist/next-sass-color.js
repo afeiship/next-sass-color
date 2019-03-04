@@ -4,6 +4,7 @@
   var NxColor = require('next-color');
   var sass = require('node-sass');
   var sassUtils = require('node-sass-utils')(sass);
+  var sassList2array = require('next-sass-list2array');
 
   var NxSassColor = nx.declare('nx.SassColor', {
     statics: {
@@ -20,18 +21,9 @@
             return self.darken(inColor, inAmount);
           },
           'rgba($inArgs...)': function() {
-            var args = arguments[0];
+            var list = arguments[0];
             var len = args.getLength();
-            if (len === 2) {
-              return self.rgba2(args.getValue(0), args.getValue(1));
-            } else {
-              return self.rgba4(
-                args.getValue(0),
-                args.getValue(1),
-                args.getValue(2),
-                args.getValue(3)
-              );
-            }
+            return self['rgba' + len].apply(null, sassList2array(list));
           }
         };
       },
