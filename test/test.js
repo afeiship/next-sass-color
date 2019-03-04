@@ -1,15 +1,17 @@
-var nx = require('next-js-core2');
-require('../src/next-sass-color');
+(function () {
+  var nx = require('next-js-core2');
+  var NxSassColor = require('../src/next-sass-color');
 
+  describe('NxSassColor.methods', function () {
+    test('init', function () {
+      var data = {
+        key: 1,
+        value: 2
+      };
+      // console.log(rs1, rs2);
 
-test('nx.sassColor', function () {
-  var obj1 = {name: 'fei'};
-  var obj2 = {email: '1290657123@qq.com'};
+      // expect(rs1).toBe(true);
 
-  var result = {};
-
-  nx.sassColor(result, obj1, obj2);
-
-  expect(result.name, obj1.name).toBe(null);
-});
-
+    });
+  });
+}());

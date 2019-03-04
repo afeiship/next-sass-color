@@ -1,6 +1,5 @@
 {
   "name": "next-sass-color",
-  "version": "0.0.1",
   "description": "Color functions for sassLoader based nodeSass",
   "main": "dist/next-sass-color.js",
   "authors": [
@@ -20,9 +19,8 @@
     "bower_components",
     "test",
     "tests",
-    "build",
     "src",
-    "gulp",
+    "build",
     "gulpfile.js"
   ]
 }

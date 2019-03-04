@@ -24,8 +24,7 @@
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.1.2",
     "jest": "^23.6.0",
-    "yargs": "^4.7.1",
-    "prettier": "^1.14.3"
+    "yargs": "^4.7.1"
   },
   "dependencies": {
     "next-color": "github:afeiship/next-color",
