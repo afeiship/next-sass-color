@@ -19,6 +19,21 @@
           'darken($inColor,$inAmount)': function(inColor, inAmount) {
             return self.darken(inColor, inAmount);
           },
+          'hsl($inH,$inS,$inL)': function(inH, inS, inL) {
+            return self.hsl(inH, inS, inL);
+          },
+          'hsla($inH,$inS,$inL,$inAlpha)': function(inH, inS, inL, inAlpha) {
+            return self.hsla(inH, inS, inL);
+          },
+          'hue($inColor)': function(inColor) {
+            return self.hue(inColor);
+          },
+          'saturation($inColor)': function(inColor) {
+            return self.saturation(inColor);
+          },
+          'lightness($inColor)': function(inColor) {
+            return self.lightness(inColor);
+          },
           'rgba($inArgs...)': function() {
             var args = arguments[0];
             var len = args.getLength();
@@ -38,6 +53,25 @@
       color: function(inContext, inSassString) {
         var path = inSassString.getValue();
         return sassUtils.castToSass(nx.get(inContext, path));
+      },
+      hsl: function(inH, inS, inL) {
+        var h = inH.getValue();
+        var s = inS.getValue();
+        var l = inL.getValue();
+        return NxColor.hsl(h, s, l);
+      },
+      hsla: function(inH, inS, inL, inAlpha) {
+        var h = inH.getValue();
+        var s = inS.getValue();
+        var l = inL.getValue();
+        var alpha = inAlpha.getValue();
+        return NxColor.hsla(h, s, l, alpha);
+      },
+      'hue,saturation,lightness': function(inName) {
+        return function(inColor) {
+          var colorString = NxColor[inName](inColor.getValue()).hex();
+          return sassUtils.castToSass(colorString);
+        };
       },
       'lighten,darken': function(inName) {
         return function(inColor, inAmount) {
