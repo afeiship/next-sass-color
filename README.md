@@ -83,4 +83,4 @@ $colors: (
 
 
 ## resources:
-- https://github.com/afeiship
+- http://www.mamicode.com/info-detail-1126451.html
