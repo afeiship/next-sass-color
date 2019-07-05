@@ -16,6 +16,20 @@ $colors: (
   gray: color("gray")
 );
 
+$size: 12px;
+$color: #f00;
+body {
+  width: -12 * $size;
+  c1: hsl(200, 0.3, 0.8);
+  test1: hue(#f5f7fa);
+  test2: saturation(#f5f7fa);
+  test3: lightness(#f5f7fa);
+  test4: adjust-hue(#f36, 150);
+  test5: adjust-hue(#f36, 150deg);
+  test5_1: saturation(desaturate(#0056ff, 0.33));
+  test6: hsl(216deg, 33%, 97);
+}
+
 // @debug $colors;
 
 .color1 {
@@ -30,4 +44,8 @@ $colors: (
 .color3 {
   color: color("primary.darken");
   background: rgba(color(secondary), 0.2);
+}
+
+.color3 {
+  color: hsl(hue(get("color.primary.default")), 33%, 97);
 }

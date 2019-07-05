@@ -19,6 +19,9 @@
           'darken($inColor,$inAmount)': function(inColor, inAmount) {
             return self.darken(inColor, inAmount);
           },
+          'adjust-hue($inColor,$inDeg)': function(inColor, inDeg) {
+            console.log('to be implement!');
+          },
           'saturate($inColor,$inAmount)': function(inColor, inAmount) {
             return self.saturate(inColor, inAmount);
           },
