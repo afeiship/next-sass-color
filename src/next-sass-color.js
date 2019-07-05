@@ -58,14 +58,16 @@
         var h = inH.getValue();
         var s = inS.getValue();
         var l = inL.getValue();
-        return NxColor.hsl(h, s, l);
+        var colorString = NxColor.hsl(h, s, l).hex();
+        return sassUtils.castToSass(colorString);
       },
       hsla: function(inH, inS, inL, inAlpha) {
         var h = inH.getValue();
         var s = inS.getValue();
         var l = inL.getValue();
         var alpha = inAlpha.getValue();
-        return NxColor.hsla(h, s, l, alpha);
+        var colorString = NxColor.hsla(h, s, l, alpha).hex();
+        return sassUtils.castToSass(colorString);
       },
       'hue,saturation,lightness': function(inName) {
         return function(inColor) {
