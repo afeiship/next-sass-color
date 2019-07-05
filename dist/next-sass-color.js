@@ -19,6 +19,12 @@
           'darken($inColor,$inAmount)': function(inColor, inAmount) {
             return self.darken(inColor, inAmount);
           },
+          'saturate($inColor,$inAmount)': function(inColor, inAmount) {
+            return self.saturate(inColor, inAmount);
+          },
+          'desaturate($inColor,$inAmount)': function(inColor, inAmount) {
+            return self.desaturate(inColor, inAmount);
+          },
           'hsl($inH,$inS,$inL)': function(inH, inS, inL) {
             return self.hsl(inH, inS, inL);
           },
@@ -71,11 +77,11 @@
       },
       'hue,saturation,lightness': function(inName) {
         return function(inColor) {
-          var colorString = NxColor[inName](inColor.getValue()).hex();
+          var colorString = NxColor[inName](inColor.getValue());
           return sassUtils.castToSass(colorString);
         };
       },
-      'lighten,darken': function(inName) {
+      'lighten,darken,saturate,desaturate': function(inName) {
         return function(inColor, inAmount) {
           var amount = inAmount.getValue() / 100;
           var type = sassUtils.typeOf(inColor);
