@@ -80,8 +80,8 @@
       },
       'hue,saturation,lightness': function(inName) {
         return function(inColor) {
-          var colorString = NxColor[inName](inColor.getValue());
-          return sassUtils.castToSass(colorString);
+          var colorString = NxColor[inName](sassUtils.sassString(inColor));
+          return colorString ? sassUtils.castToSass(colorString) : colorString;
         };
       },
       'lighten,darken,saturate,desaturate': function(inName) {
@@ -92,6 +92,9 @@
           switch (type) {
             case 'string':
               colorString = NxColor[inName](inColor.getValue(), amount).hex();
+              break;
+            case 'color':
+              colorString = sassUtils.sassString(inColor);
               break;
           }
           return sassUtils.castToSass(colorString);

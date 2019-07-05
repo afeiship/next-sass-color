@@ -8,7 +8,6 @@
     .toString();
 
   // console.log(sassString);
-  // return;
 
   describe('NxSassColor.methods', function() {
     test('syncRender', function() {

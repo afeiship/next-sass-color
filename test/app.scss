@@ -24,8 +24,8 @@ body {
   test1: hue(#f5f7fa);
   test2: saturation(#f5f7fa);
   test3: lightness(#f5f7fa);
-  test4: adjust-hue(#f36, 150);
-  test5: adjust-hue(#f36, 150deg);
+  // test4: adjust-hue(#f36, 150);
+  // test5: adjust-hue(#f36, 150deg);
   test5_1: saturation(desaturate(#0056ff, 0.33));
   test6: hsl(216deg, 33%, 97);
 }
@@ -47,5 +47,5 @@ body {
 }
 
 .color3 {
-  color: hsl(hue(get("color.primary.default")), 33%, 97);
+  // color: hsl(hue(get("primary.default")), 33%, 97);
 }
