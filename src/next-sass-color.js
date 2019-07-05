@@ -23,7 +23,7 @@
             return self.hsl(inH, inS, inL);
           },
           'hsla($inH,$inS,$inL,$inAlpha)': function(inH, inS, inL, inAlpha) {
-            return self.hsla(inH, inS, inL);
+            return self.hsla(inH, inS, inL, inAlpha);
           },
           'hue($inColor)': function(inColor) {
             return self.hue(inColor);
