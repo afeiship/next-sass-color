@@ -81,7 +81,7 @@
       'hue,saturation,lightness': function(inName) {
         return function(inColor) {
           var colorString = NxColor[inName](sassUtils.sassString(inColor));
-          return colorString == null ? sassUtils.castToSass(colorString) : colorString;
+          return colorString == null ? colorString : sassUtils.castToSass(colorString);
         };
       },
       'lighten,darken,saturate,desaturate': function(inName) {
